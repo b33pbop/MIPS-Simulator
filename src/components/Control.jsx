@@ -10,7 +10,7 @@ export default function Control({ x, y, active }) {
                 stroke="red"
                 rx="15"
             />
-            <text x={width/2} y={height/2} textAnchor="middle">Control</text>
+            <text x={width/2} y={height/2} textAnchor="middle" dominantBaseline="middle">Control</text>
         </g>
     );
 }

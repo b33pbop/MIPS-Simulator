@@ -1,7 +1,14 @@
-export default function Wire({ x, y, active }) {
+export default function Wire({ points, active=false, arrowEnd=false }) {
+    const pointsStr = points.map(p => `${p.x},${p.y}`).join(" ");
+
     return (
-        <g transform={`translate(${x}, ${y})`}>
-            <line x1="0" y1="40"></line>
-        </g>
+        <polyline
+            points={pointsStr}
+            fill="none"
+            stroke={active ? "red" : "black"}
+            strokeWidth={2}
+            strokeLinecap="round"
+            marker-end={arrowEnd ? "url(#arrowhead)" : null}
+        />
     );
 }

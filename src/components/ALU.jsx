@@ -1,18 +1,59 @@
 export default function ALU({ x, y, active }) {
-    const width = 150;
-    const height = 220;
+    const width = 110;
+    const height = 240;
+    const slant = 60;
+
     return (
         <g transform={`translate(${x}, ${y})`}>
-            <rect 
-                width={width}
-                height={height} 
-                fill={active ? "#ffaaaa" : "#ffee99"} 
+            <polygon
+                points={`
+                    0,0
+                    ${width},${slant}
+                    ${width},${height - slant}
+                    0,${height} 
+                `}
+                fill={active ? "#ffaaaa" : "#ffee99"}
                 stroke="black"
             />
-            <text x={width/2 + 45} y={height/4} textAnchor="start">is0</text>
-            <text x={width/2} y={height/2} textAnchor="middle">ALU</text>
-            <text x={width/2 + 30} y={height * 3/4} textAnchor="start">ALU</text>
-            <text x={width/2 + 30} y={height * 3/4 + 15} textAnchor="start">result</text>
+
+            {/* isZero output */}
+            <text
+                x={width - 5}
+                y={slant + 20}
+                textAnchor="end"
+                dominantBaseline="middle"
+            >
+                is0
+            </text>
+
+            {/* ALU label */}
+            <text
+                x={width / 2}
+                y={height / 2}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontWeight="bold"
+            >
+                ALU
+            </text>
+
+            {/* Result label */}
+            <text
+                x={width - 10}
+                y={height - slant - 22}
+                textAnchor="end"
+                dominantBaseline="middle"
+            >
+                ALU
+            </text>
+            <text
+                x={width - 10}
+                y={height - slant - 6}
+                textAnchor="end"
+                dominantBaseline="middle"
+            >
+                result
+            </text>
         </g>
     );
 }
