@@ -1,6 +1,6 @@
 export default function PC({ x, y, active }) {
     const width = 60;
-    const height = 80;
+    const height = 100;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 

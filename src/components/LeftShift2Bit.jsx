@@ -1,15 +1,17 @@
 export default function LeftShift2Bit({ x, y, active }) {
-    const width = 100;
-    const height = 80;
+    const width = 170;
+    const height = 60;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
-                width="100" 
-                height="80" 
+                width={width}
+                height={height}
                 fill={active ? "#ffaaaa" : "#ffee99"} 
                 stroke="black"
+                rx="80"
             />
-            <text x="50" y="45" textAnchor="middle">Left Shift 2-Bits</text>
+            <text x={width/2} y={height/2 - 2} textAnchor="middle">Left Shift</text>
+            <text x={width/2} y={height/2 + 13} textAnchor="middle">2-Bits</text>
         </g>
     );
 }

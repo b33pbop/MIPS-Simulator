@@ -1,6 +1,8 @@
 export default function Decoder({ x, y, active }) {
     const width = 50;
     const height = 600;
+    const numSections = 6;
+    const sectionHeight = height / numSections;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
@@ -9,7 +11,17 @@ export default function Decoder({ x, y, active }) {
                 fill={active ? "#ffaaaa" : "#ffee99"} 
                 stroke="black"
             />
-            <line x1={width/2} y1="0" x2={width/2} y2={height} stroke="black" strokeDasharray="5,5" />
+            {[...Array(numSections)].map((_, i) => (
+                <line
+                    key={i}
+                    x1={0}
+                    y1={(i + 1) * sectionHeight}
+                    x2={width}
+                    y2={(i + 1) * sectionHeight}
+                    stroke="black"
+                    strokeWidth={1}
+                />
+            ))}
         </g>
     );
 }

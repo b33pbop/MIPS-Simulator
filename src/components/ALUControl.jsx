@@ -1,15 +1,17 @@
 export default function ALUControl({ x, y, active }) {
-    const width = 100;
-    const height = 80;
+    const width = 170;
+    const height = 100;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
-                width="100" 
-                height="80" 
+                width={width}
+                height={height} 
                 fill={active ? "#ffaaaa" : "#ffee99"} 
-                stroke="black"
+                stroke="red"
+                rx="15"
             />
-            <text x="50" y="45" textAnchor="middle">ALUControl</text>
+            <text x={width/2} y={height/2 - 5} textAnchor="middle">ALU</text>
+            <text x={width/2} y={height/2 + 15} textAnchor="middle">Control</text>
         </g>
     );
 }

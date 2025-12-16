@@ -1,6 +1,6 @@
 export default function Adder({ x, y, active }) {
     const width = 80;
-    const height = 60;
+    const height = 90;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
@@ -9,7 +9,7 @@ export default function Adder({ x, y, active }) {
                 fill={active ? "#ffaaaa" : "#ffee99"} 
                 stroke="black"
             />
-            <text x={width/2} y={height/2} textAnchor="middle">Add</text>
+            <text x={width/2} y={height/2 + 5} textAnchor="middle">Add</text>
         </g>
     );
 }

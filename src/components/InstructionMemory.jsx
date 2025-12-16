@@ -1,6 +1,6 @@
 export default function InstructionMemory({ x, y, active }) {
-    const width = 125;
-    const height = 150;
+    const width = 150;
+    const height = 170;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 

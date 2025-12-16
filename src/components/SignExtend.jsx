@@ -1,15 +1,17 @@
 export default function SignExtend({ x, y, active }) {
-    const width = 100;
-    const height = 80;
+    const width = 150;
+    const height = 60;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
-                width="100" 
-                height="80" 
+                width={width}
+                height={height}
                 fill={active ? "#ffaaaa" : "#ffee99"} 
                 stroke="black"
+                rx="80"
             />
-            <text x="50" y="45" textAnchor="middle">Sign Extend</text>
+            <text x={width/2} y={height/2 - 2} textAnchor="middle">Sign</text>
+            <text x={width/2} y={height/2 + 13} textAnchor="middle">Extend</text>
         </g>
     );
 }
