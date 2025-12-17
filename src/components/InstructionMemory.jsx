@@ -11,8 +11,8 @@ export default function InstructionMemory({ x, y, active }) {
             />
             <text x={width/2} y="20" textAnchor="middle">Instruction</text>
             <text x={width/2} y="40" textAnchor="middle">Memory</text>
-            <text x="80" y="85" textAnchor="end" style={{fontSize: "15px", fontWeight: "bold"}}>Instruction</text>
-            <text x="85" y="160" textAnchor="start" style={{fontSize: "15px", fontWeight: "bold"}}>Address</text>
+            <text x="80" y="80" textAnchor="end" style={{fontSize: "15px", fontWeight: "bold"}} dominantBaseline="middle">Instruction</text>
+            <text x="85" y="155" textAnchor="start" style={{fontSize: "15px", fontWeight: "bold"}} dominantBaseline="middle">Address</text>
         </g>
     );
 }

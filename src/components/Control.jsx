@@ -1,6 +1,6 @@
 export default function Control({ x, y, active }) {
     const width = 100;
-    const height = 170;
+    const height = 190;
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 

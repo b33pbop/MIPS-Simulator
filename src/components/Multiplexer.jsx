@@ -8,6 +8,7 @@ export default function Multiplexer({ x, y, active }) {
                 height={height}
                 fill={active ? "#ffaaaa" : "#ffee99"} 
                 stroke="black"
+                rx="8"
             />
             <text x={width/2} y={height/2 - 20} textAnchor="middle">M</text>
             <text x={width/2} y={height/2 + 5} textAnchor="middle">U</text>
