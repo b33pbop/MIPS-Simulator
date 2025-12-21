@@ -12,7 +12,7 @@ export default function ALU({ x, y, active }) {
                     ${width},${height - slant}
                     0,${height} 
                 `}
-                fill={active ? "#ffaaaa" : "#ffee99"}
+                fill="#FFFFFF"
                 stroke="black"
             />
 

@@ -6,7 +6,7 @@ export default function PC({ x, y, active }) {
             <rect 
                 width={width}
                 height={height} 
-                fill={active ? "#ffaaaa" : "#ffee99"} 
+                fill="#DADEE3"
                 stroke="black"
             />
             <text x={width/2} y={height/2} textAnchor="middle">PC</text>

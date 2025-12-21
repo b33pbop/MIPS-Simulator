@@ -1,0 +1,14 @@
+#user-input-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    height: 30px;
+    width: 25%;
+}
+
+#instruction-input {
+    background-color: white;
+    color: black;
+}
