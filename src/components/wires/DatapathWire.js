@@ -36,24 +36,6 @@ export const datapathWireCoordinates = [
         arrowEnd: true,
     },
     {
-        id: "rs-to-rr1",
-        points: [
-            { x: 250, y: 380 },
-            { x: 460, y: 415 },
-            { x: 520, y: 415 },
-        ],
-        arrowEnd: true,
-    },
-    {
-        id: "rt-to-rr2",
-        points: [
-            { x: 250, y: 480 },
-            { x: 460, y: 445 },
-            { x: 520, y: 445 },
-        ],
-        arrowEnd: true,
-    },
-    {
         id: "rt-to-regdst",
         points: [
             { x: 300, y: 472 },

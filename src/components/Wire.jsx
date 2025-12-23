@@ -9,7 +9,7 @@ export default function Wire({ points, arrowEnd=false, label=false, isDatapath=t
                 stroke={isDatapath ? "black" : "red"}
                 strokeWidth={2}
                 strokeLinecap="round"
-                marker-end={arrowEnd ? "url(#arrowhead)" : null}
+                markerEnd={arrowEnd ? "url(#arrowhead)" : null}
             />
 
             {/* {label && (

@@ -87,7 +87,7 @@ export const conntrolPathWireCoordinates = [
         arrowEnd: false,
     },
     {
-        id: "alusrc-signal",
+        id: "memread-signal",
         points: [
             { x: 590, y: 340 },
             { x: 700, y: 340 },
