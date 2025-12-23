@@ -1,4 +1,4 @@
-export const conntrolPathWireCoordinates = [
+export const controlPathWireCoordinates = [
     {
         id: "funct-to-alucontrol",
         points: [

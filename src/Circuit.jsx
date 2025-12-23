@@ -15,7 +15,7 @@ import ANDGate from './components/ANDGate'
 import './styles/App.css'
 import { datapathWireCoordinates } from './data/wires/DatapathWire'
 import { junctions } from './data/wires/DatapathJunction'
-import { conntrolPathWireCoordinates } from './data/wires/ControlPathWire'
+import { controlPathWireCoordinates } from './data/wires/ControlPathWire'
 
 export default function Circuit() {
     return (
@@ -74,7 +74,7 @@ export default function Circuit() {
             ))}
 
             {/* Control Path Wires */}
-            {conntrolPathWireCoordinates.map(wire => (
+            {controlPathWireCoordinates.map(wire => (
                 <Wire
                     key={wire.id}
                     points={wire.points}
