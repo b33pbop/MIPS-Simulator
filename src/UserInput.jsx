@@ -1,9 +1,10 @@
-import './Styles/UserInput.css'
-import { useState } from "react"
+import './styles/UserInput.css'
 
-export default function UserInput() {
-    const [instruction, setInstruction] = useState("");
-    const handleUpdateInstruction = (event) => setInstruction(event.target.value);
+export default function UserInput({ instruction, setInstruction }) {
+    const handleUpdateInstruction = (event) => { 
+        setInstruction(event.target.value);
+    }
+
     const handleSubmitInstruction = (event) => {
         event.preventDefault();
         console.log("Instruction submitted: ", instruction);
@@ -11,7 +12,8 @@ export default function UserInput() {
 
     return (
         <div id="user-input-div"> 
-            <p style={{ color: 'black' }}>Instruction: </p>
+            <p>Instruction: </p>
+
             <form onSubmit={handleSubmitInstruction}>
                 <input
                     type="text"
@@ -20,7 +22,9 @@ export default function UserInput() {
                     id="instruction-input"
                     placeholder="e.g. addi $t1, $zero, 0"
                 />
+
                 <button
+                    id="submit-button"
                     type="submit"
                 >
                     Submit

@@ -12,10 +12,10 @@ import DataMemory from './components/DataMemory'
 import Wire from './components/Wire'
 import LeftShift2Bit from './components/LeftShift2Bit'
 import ANDGate from './components/ANDGate'
-import './Styles/App.css'
-import { datapathWireCoordinates } from './components/wires/DatapathWire'
-import { junctions } from './components/wires/DatapathJunction'
-import { conntrolPathWireCoordinates } from './components/wires/ControlPathWire'
+import './styles/App.css'
+import { datapathWireCoordinates } from './data/wires/DatapathWire'
+import { junctions } from './data/wires/DatapathJunction'
+import { conntrolPathWireCoordinates } from './data/wires/ControlPathWire'
 
 export default function Circuit() {
     return (
