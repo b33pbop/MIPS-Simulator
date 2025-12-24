@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './styles/App.css'
-import Circuit from './Circuit'
-import UserInput from './UserInput'
+import './styles/app.css'
+import Circuit from './components/app_components/Circuit'
+import UserInput from './components/app_components/UserInput'
 
 function App() {
     const [instruction, setInstruction] = useState("");

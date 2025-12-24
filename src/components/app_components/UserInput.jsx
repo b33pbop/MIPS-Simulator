@@ -1,4 +1,4 @@
-import './styles/UserInput.css'
+import '../../styles/user-input.css'
 
 export default function UserInput({ instruction, setInstruction }) {
     const handleUpdateInstruction = (event) => { 
