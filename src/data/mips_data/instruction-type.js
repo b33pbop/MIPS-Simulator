@@ -1,10 +1,11 @@
 // Currently only commonly used instructions are supported
 // There are 3 types of formats: R, I, J
-// There are 4 types of operands:
+// There are 5 types of operands:
 // 1. register -> r
-// 2. immediate -> i
-// 3. instruction address label -> l
-// 4. memory address for load/store instructions, offset(register) format -> i(r)
+// 2. signed immediate -> si
+// 3. unsigned immediate -> ui
+// 4. instruction address label -> l
+// 5. memory address for load/store instructions, offset(register) format -> si(r)
 export const INSTRUCTIONS = {
     add: {
         format: "R",
@@ -12,7 +13,7 @@ export const INSTRUCTIONS = {
     },
     addi: {
         format: "I",
-        operands: ["r", "r", "i"]
+        operands: ["r", "r", "si"]
     },
     and: {
         format: "R",
@@ -20,7 +21,7 @@ export const INSTRUCTIONS = {
     },
     andi: {
         format: "I",
-        operands: ["r", "r", "i"]
+        operands: ["r", "r", "ui"]
     },
     beq: {
         format: "I",
@@ -36,11 +37,11 @@ export const INSTRUCTIONS = {
     },
     lui: {
         format: "I",
-        operands: ["r", "r", "i"]
+        operands: ["r", "r", "ui"]
     },
     lw: {
         format: "I",
-        operands: ["r", "i(r)"]
+        operands: ["r", "si(r)"]
     },
     nor: {
         format: "R",
@@ -52,7 +53,7 @@ export const INSTRUCTIONS = {
     },
     ori: {
         format: "I",
-        operands: ["r", "r", "i"]
+        operands: ["r", "r", "ui"]
     },
     slt: {
         format: "R",
@@ -60,7 +61,7 @@ export const INSTRUCTIONS = {
     },
     slti: {
         format: "I",
-        operands: ["r", "r", "i"]
+        operands: ["r", "r", "si"]
     },
     sll: {
         format: "R",
@@ -72,7 +73,7 @@ export const INSTRUCTIONS = {
     },
     sw: {
         format: "I",
-        operands: ["r", "i(r)"]
+        operands: ["r", "si(r)"]
     },
     sub: {
         format: "R",

@@ -5,6 +5,7 @@ import UserInput from './components/app_components/UserInput'
 
 function App() {
     const [instruction, setInstruction] = useState("");
+    const [output, setOutput] = useState("");
 
     return (
         <div className='app'>
@@ -12,7 +13,10 @@ function App() {
             <UserInput 
                 instruction={instruction}
                 setInstruction={setInstruction}
+                output={output}
+                setOutput={setOutput}
             />
+            <p>{output}</p>
             <Circuit instruction={instruction}/>
         </div>
     )
