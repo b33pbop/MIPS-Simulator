@@ -69,7 +69,7 @@ function isValidUnsignedImmediate(immediate) {
 
 function isValidLabel(label) {
     const labelRegex = /^[A-Za-z_][A-Za-z0-9_]*$/;
-    return !isValidRegister(label) && !isValidMnemonic && labelRegex.test(label);
+    return !isValidRegister(label) && !isValidMnemonic(label) && labelRegex.test(label);
 }
 
 /**
