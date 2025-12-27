@@ -45,12 +45,12 @@ function isValidMnemonic(mnemonic) {
     return mnemonic in INSTRUCTIONS;
 }
 
-function isValidRegister(register) {
-    return register in REGISTERS;
+function isValidRegisterOperand(operand) {
+    return operand in REGISTERS;
 }
 
-function isValidSignedImmediate(immediate) {
-    const value = Number(immediate);
+function isValidSignedImmediateOperand(operand) {
+    const value = Number(operand);
     if (!Number.isInteger(value)) {
         return false;
     }
@@ -58,8 +58,8 @@ function isValidSignedImmediate(immediate) {
     return (value >= MIN_SIGNED_16BIT_INT && value <= MAX_SIGNED_16BIT_INT);
 }
 
-function isValidUnsignedImmediate(immediate) {
-    const value = Number(immediate);
+function isValidUnsignedImmediateOperand(operand) {
+    const value = Number(operand);
     if (!Number.isInteger(value)) {
         return false;
     }
@@ -67,9 +67,38 @@ function isValidUnsignedImmediate(immediate) {
     return (value >= MIN_UNSIGNED_16BIT && value <= MAX_UNSIGNED_16BIT);
 }
 
-function isValidLabel(label) {
+function isValidLabelOperand(operand) {
     const labelRegex = /^[A-Za-z_][A-Za-z0-9_]*$/;
-    return !isValidRegister(label) && !isValidMnemonic(label) && labelRegex.test(label);
+    return !isValidRegisterOperand(operand) && !isValidMnemonic(operand) && labelRegex.test(operand);
+}
+
+function isValidOffsetRegisterOperand(operand) {
+    // no spaces
+    if (operand.trim().includes(" ")) {
+        return false;
+    }
+
+    // must contain exactly 1 '('
+    const operandParts = operand.split('('); // e.g. [0, $t1)]
+    if (operandParts.length != 2) {
+        return false;
+    }
+
+    const offsetStr = operandParts[0]; // e.g. 0
+    const registerPart = operandParts[1]; // e.g. $t1)
+
+    // immediate must be a signed integer
+    if (!isValidSignedImmediateOperand(offsetStr)) {
+        return false;
+    }
+
+    // must end with ')'
+    if (!registerPart.endsWith(")")) {
+        return false;
+    }
+
+    const register = registerPart.slice(0, -1);
+    return isValidRegisterOperand(register);
 }
 
 /**
@@ -81,16 +110,18 @@ function isValidOperand(operand, operandType) {
     switch(operandType) {
         // registers
         case "r":
-            return isValidRegister(operand);
+            return isValidRegisterOperand(operand);
         // signed integer
         case "si":
-            return isValidSignedImmediate(operand);
+            return isValidSignedImmediateOperand(operand);
         // unsigned integer
         case "ui":
-            return isValidUnsignedImmediate(operand);
+            return isValidUnsignedImmediateOperand(operand);
         // instruction label
         case "l":
-            return isValidLabel(operand);
+            return isValidLabelOperand(operand);
+        case "si(r)":
+            return isValidOffsetRegisterOperand(operand);
         default:
             return false;
     }
