@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../../styles/user-input.css'
 import { tokenizeInstruction } from '../../logic/parser/input-tokenizer';
 import { parseInstruction } from '../../logic/parser/input-parser';

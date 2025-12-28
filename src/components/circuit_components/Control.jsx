@@ -1,4 +1,4 @@
-export default function Control({ x, y, active }) {
+export default function Control({ x, y, active=false }) {
     const width = 100;
     const height = 190;
     return (

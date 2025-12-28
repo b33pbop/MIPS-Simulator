@@ -1,13 +1,14 @@
-export default function Wire({ points, arrowEnd=false, label=false, isDatapath=true }) {
+export default function Wire({ points, arrowEnd=false, label=false, isDatapath=true, active=false }) {
     const pointsStr = points.map(p => `${p.x},${p.y}`).join(" ");
+    const stroke = active ? "blue" : (isDatapath ? "black" : "red")
 
     return (
         <>
             <polyline
                 points={pointsStr}
                 fill="none"
-                stroke={isDatapath ? "black" : "red"}
-                strokeWidth={2}
+                stroke={stroke}
+                strokeWidth={active ? 3 : 2}
                 strokeLinecap="round"
                 markerEnd={arrowEnd ? "url(#arrowhead)" : null}
             />

@@ -1,4 +1,4 @@
-export default function Registers({ x, y, active }) {
+export default function Registers({ x, y, active=false }) {
     const width = 150;
     const height = 250;
     return (
@@ -7,7 +7,8 @@ export default function Registers({ x, y, active }) {
                 width={width}
                 height={height} 
                 fill={active ? "#ffaaaa" : "#ffee99"} 
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
             />
             <text x="35" y={height * (1/6)} textAnchor="end">RR1</text>
             <text x={width - 35} y={height * (1/6)} textAnchor="start">RD1</text>

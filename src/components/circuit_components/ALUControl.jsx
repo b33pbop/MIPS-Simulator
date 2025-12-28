@@ -1,4 +1,4 @@
-export default function ALUControl({ x, y, active }) {
+export default function ALUControl({ x, y, active=false }) {
     const width = 200;
     const height = 90;
     return (

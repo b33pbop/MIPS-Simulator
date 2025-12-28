@@ -1,4 +1,4 @@
-export default function Multiplexer({ x, y, active }) {
+export default function Multiplexer({ x, y, active=false }) {
     const width = 40;
     const height = 120;
     
@@ -18,8 +18,8 @@ export default function Multiplexer({ x, y, active }) {
                 width={width}
                 height={height}
                 fill="#F2F2F2"
-                stroke="black"
-                strokeWidth={3}
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
                 rx="8"
             />
             <text 

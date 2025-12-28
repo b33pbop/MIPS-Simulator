@@ -1,4 +1,4 @@
-export default function DataMemory({ x, y, active }) {
+export default function DataMemory({ x, y, active=false }) {
     const width = 170;
     const height = 210;
     return (
@@ -7,7 +7,8 @@ export default function DataMemory({ x, y, active }) {
                 width={width}
                 height={height}
                 fill={active ? "#ffaaaa" : "#ffee99"} 
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
             />
 
             {/* "Address" label */}

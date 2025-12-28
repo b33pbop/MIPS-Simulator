@@ -34,23 +34,23 @@ export default function Circuit() {
             </defs>
 
             {/* Circuit Components */}
-            <InstructionMemory x={150} y={40} active={true} />
-            <Decoder x={200} y={230} active={false} />
-            <PC x={375} y={50} active={false} />
-            <Multiplexer x={400} y={520} active={true} />
-            <Control x={490} y={180} active={true} />
-            <Adder x={520} y={60} active={false} />
-            <Registers x={520} y={380} active={false} />
-            <SignExtend x={520} y={720} active={false} />
-            <LeftShift2Bit x={650} y={180} active={false} />
-            <ALUControl x={735} y={830} active={true} />
-            <Multiplexer x={800} y={560} active={true} />
-            <ALU x={920} y={395} active={false} />
-            <Adder x={1010} y={140} active={false} />
-            <ANDGate x={1090} y={230} active={false} />
-            <DataMemory x={1110} y={540} active={false} />
-            <Multiplexer x={1160} y={85} active={true} />
-            <Multiplexer x={1340} y={680} active={true} />
+            <InstructionMemory x={150} y={40} />
+            <Decoder x={200} y={230} />
+            <PC x={375} y={50} />
+            <Multiplexer x={400} y={520} />
+            <Control x={490} y={180} />
+            <Adder x={520} y={60} />
+            <Registers x={520} y={380} />
+            <SignExtend x={520} y={720} />
+            <LeftShift2Bit x={650} y={180} />
+            <ALUControl x={735} y={830} />
+            <Multiplexer x={800} y={560} />
+            <ALU x={920} y={395} />
+            <Adder x={1010} y={140} />
+            <ANDGate x={1090} y={230} />
+            <DataMemory x={1110} y={540} />
+            <Multiplexer x={1160} y={85} />
+            <Multiplexer x={1340} y={680} />
 
 
             {/* Data Path Wires */}

@@ -1,4 +1,4 @@
-export default function Decoder({ x, y, active }) {
+export default function Decoder({ x, y, active=false }) {
     const width = 50;
     const height = 600;
     const numSections = 6;
@@ -9,7 +9,8 @@ export default function Decoder({ x, y, active }) {
                 width={width}
                 height={height} 
                 fill={active ? "#ffaaaa" : "#ffee99"} 
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
             />
             {[...Array(numSections)].map((_, i) => (
                 <line

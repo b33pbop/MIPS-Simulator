@@ -1,4 +1,4 @@
-export default function LeftShift2Bit({ x, y, active }) {
+export default function LeftShift2Bit({ x, y, active=false }) {
     const width = 170;
     const height = 60;
     return (
@@ -7,7 +7,8 @@ export default function LeftShift2Bit({ x, y, active }) {
                 width={width}
                 height={height}
                 fill={active ? "#ffaaaa" : "#ffee99"} 
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
                 rx="80"
             />
             <text x={width/2} y={height/2 - 2} textAnchor="middle">Left Shift</text>

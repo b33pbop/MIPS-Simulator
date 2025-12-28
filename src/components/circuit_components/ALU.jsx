@@ -1,4 +1,4 @@
-export default function ALU({ x, y, active }) {
+export default function ALU({ x, y, active=false }) {
     const width = 110;
     const height = 240;
     const slant = 60;
@@ -13,7 +13,8 @@ export default function ALU({ x, y, active }) {
                     0,${height} 
                 `}
                 fill="#FFFFFF"
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
             />
 
             {/* isZero output */}

@@ -13,7 +13,6 @@ const MIN_UNSIGNED_16BIT = 0;
  * 
  * @param {string[]} tokens - Tokenized instruction.
  */
-
 export function parseInstruction(tokens) {
     const mnemonic = tokens[0];
     const operands = tokens.slice(1);
@@ -102,9 +101,9 @@ function isValidOffsetRegisterOperand(operand) {
 }
 
 /**
- * * Checks if a user's input operand matches the operand type based on registers.js
- * @param {*} operand is the user's input operand
- * @param {*} operandType operand type based on registers.js
+ * Checks if a user's input operand matches the operand type based on registers.js
+ * @param {*} operand is the user's input operand.
+ * @param {*} operandType operand type based on registers.js.
  */
 function isValidOperand(operand, operandType) {
     switch(operandType) {

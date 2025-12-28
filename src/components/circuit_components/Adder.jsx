@@ -1,4 +1,4 @@
-export default function Adder({ x, y, active }) {
+export default function Adder({ x, y, active=false }) {
     const width = 80;
     const height = 90;
     const slant = 20;
@@ -12,7 +12,8 @@ export default function Adder({ x, y, active }) {
                     0,${height}
                 `}
                 fill="#FFFFFF"
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
             />
 
             <text

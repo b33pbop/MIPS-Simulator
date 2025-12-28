@@ -1,4 +1,4 @@
-export default function ANDGate({ x, y, active }) {
+export default function ANDGate({ x, y, active=false }) {
     const width = 40;
     const height = 40;
     const r = height / 2;        // radius of the semicircle

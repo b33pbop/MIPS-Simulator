@@ -1,4 +1,4 @@
-export default function InstructionMemory({ x, y, active }) {
+export default function InstructionMemory({ x, y, active=false }) {
     const width = 150;
     const height = 170;
 
@@ -14,7 +14,8 @@ export default function InstructionMemory({ x, y, active }) {
                 width={width}
                 height={height}
                 fill="#E6E5BF"
-                stroke="black"
+                stroke={active ? "blue" : "black"}
+                strokeWidth={active ? 3 : 1}
             />
             <text 
                 x={width/2} y="25" 
