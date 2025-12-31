@@ -17,13 +17,19 @@ export function parseInstruction(tokens) {
     const mnemonic = tokens[0];
     const operands = tokens.slice(1);
     if (!isValidMnemonic(mnemonic)) {
-        return "Invalid instruction! The instruction entered might not be supported or has an invalid format!";
+        return {
+            "output": "Invalid instruction! The instruction entered might not be supported or has an invalid format!",
+            "type": null,
+        };
     }
 
     const expectedOperands = INSTRUCTIONS[mnemonic].operands;
 
     if (operands.length !== expectedOperands.length) {
-        return "Invalid number of operands!";
+        return {
+            "output": "Invalid number of operands!",
+            "type": null
+        };
     }
 
     // make operands lowercase to check without case-sensitivity
@@ -32,12 +38,18 @@ export function parseInstruction(tokens) {
         const operandType = expectedOperands[i];
 
         if (!isValidOperand(operand, operandType)) {
-            return `Invalid operand ${operand} for ${mnemonic}`;
+            return {
+                "output": `Invalid operand ${operand} for ${mnemonic}`,
+                "type": null
+            };
         }
     }
 
     // instruction is valid -> simulate the instruction
-    return "INSTRUCTION IS VALID!";
+    return {
+        "output": "INSTRUCTION IS VALID!",
+        "type": INSTRUCTIONS.mnemonic,
+    };
 }
 
 function isValidMnemonic(mnemonic) {

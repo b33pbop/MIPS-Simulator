@@ -2,7 +2,7 @@
     max-width: 80vw;
     width: 80vw;
     margin: 0 auto;
-    padding: 2rem;
+    /* padding: 2rem; */
     text-align: center;
     overflow-x: auto;
     overflow-y: hidden;
@@ -19,7 +19,6 @@ body {
 
 #title {
     width: 100%;
-    background-color: #4CAF50;
 }
 
 .app {

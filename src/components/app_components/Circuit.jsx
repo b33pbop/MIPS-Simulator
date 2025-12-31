@@ -16,8 +16,27 @@ import '../../styles/app.css'
 import { datapathWireCoordinates } from '../../data/wires/datapath-wire'
 import { junctions } from '../../data/wires/datapath-junction'
 import { controlPathWireCoordinates } from '../../data/wires/control-path-wire'
+import { getCircuitComponents } from '../../data/circuit_components/circuit-components-map'
 
-export default function Circuit() {
+const Components = {
+    InstructionMemory,
+    PC,
+    Decoder,
+    Multiplexer,
+    Control,
+    Adder,
+    Registers,
+    SignExtend,
+    LeftShift2Bit,
+    ALUControl,
+    ALU,
+    ANDGate,
+    DataMemory
+};
+
+const circuitComponents = getCircuitComponents(Components);
+
+export default function Circuit({activeComponents}) {
     return (
         <svg width="100%" height="80vh" viewBox="0 0 1550 900" preserveAspectRatio="xMidYMid meet">
             <defs>
@@ -34,24 +53,9 @@ export default function Circuit() {
             </defs>
 
             {/* Circuit Components */}
-            <InstructionMemory x={150} y={40} />
-            <Decoder x={200} y={230} />
-            <PC x={375} y={50} />
-            <Multiplexer x={400} y={520} />
-            <Control x={490} y={180} />
-            <Adder x={520} y={60} />
-            <Registers x={520} y={380} />
-            <SignExtend x={520} y={720} />
-            <LeftShift2Bit x={650} y={180} />
-            <ALUControl x={735} y={830} />
-            <Multiplexer x={800} y={560} />
-            <ALU x={920} y={395} />
-            <Adder x={1010} y={140} />
-            <ANDGate x={1090} y={230} />
-            <DataMemory x={1110} y={540} />
-            <Multiplexer x={1160} y={85} />
-            <Multiplexer x={1340} y={680} />
-
+            {circuitComponents.map(({ id, Component, x, y }) => (
+                <Component key={id} x={x} y={y} id={id} active={activeComponents[id]} />
+            ))}
 
             {/* Data Path Wires */}
             {datapathWireCoordinates.map(wire => (
@@ -60,6 +64,8 @@ export default function Circuit() {
                     points={wire.points}
                     arrowEnd={wire.arrowEnd}
                     isDatapath={true}
+                    id={wire.id}
+                    active={activeComponents[wire.id]}
                 />
             ))}
 
@@ -80,6 +86,8 @@ export default function Circuit() {
                     points={wire.points}
                     arrowEnd={wire.arrowEnd}
                     isDatapath={false}
+                    id={wire.id}
+                    active={activeComponents[wire.id]}
                 />
             ))}
         </svg>

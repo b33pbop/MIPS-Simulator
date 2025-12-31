@@ -2,20 +2,16 @@ import '../../styles/user-input.css'
 import { tokenizeInstruction } from '../../logic/parser/input-tokenizer';
 import { parseInstruction } from '../../logic/parser/input-parser';
 
-export default function UserInput({ instruction, setInstruction, output, setOutput }) {
+export default function UserInput({ instruction, setInstruction, setOutput }) {
     const handleUpdateInstruction = (event) => { 
         setInstruction(event.target.value);
     }
 
     const handleSubmitInstruction = (event) => {
         event.preventDefault();
-        try {
-            const tokens = tokenizeInstruction(instruction);
-            const result = parseInstruction(tokens);
-            setOutput(result);
-        } catch (err) {
-            console.error(err.message);
-        }
+        const tokens = tokenizeInstruction(instruction);
+        const result = parseInstruction(tokens);
+        setOutput(result);
     };
 
     return (

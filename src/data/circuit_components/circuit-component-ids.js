@@ -1,0 +1,20 @@
+// for mapping to id
+export const circuitComponentIds = [
+    "instruction-memory",
+    "decoder",
+    "pc",
+    "regdst-mux",
+    "control",
+    "adder1",
+    "registers",
+    "sign-extend",
+    "left-shift-2bit",
+    "alu-control",
+    "alusrc-mux",
+    "alu",
+    "adder2",
+    "and-gate",
+    "data-memory",
+    "pcsrc-mux",
+    "memtoreg-mux",
+]

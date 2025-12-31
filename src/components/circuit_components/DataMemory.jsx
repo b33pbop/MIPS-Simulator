@@ -6,7 +6,7 @@ export default function DataMemory({ x, y, active=false }) {
             <rect 
                 width={width}
                 height={height}
-                fill={active ? "#ffaaaa" : "#ffee99"} 
+                fill="#ffee99"
                 stroke={active ? "blue" : "black"}
                 strokeWidth={active ? 3 : 1}
             />

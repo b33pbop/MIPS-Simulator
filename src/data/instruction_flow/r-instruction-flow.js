@@ -1,24 +1,24 @@
 export const R_INSTRUCTION_FLOW = {
     IF: {
         components: [
-            "InstructionMemory",
-            "Decoder",
+            "instruction-memory",
+            "decoder",
         ],
         wires: [
             "imem-to-decoder",
         ],
         // controlSignals: [],
         critical: [
-            "InstructionMemory",
+            "instruction-memory",
             "imem-to-decoder",
         ],
     },
     ID: {
         components: [
-            "Decoder",
-            "Registers",
-            "Control",
-            "ALUControl",
+            "decoder",
+            "registers",
+            "control",
+            "alu-control",
         ],
         wires: [
             "opcode-to-control",
@@ -36,14 +36,14 @@ export const R_INSTRUCTION_FLOW = {
         critical: [
             "rs-to-rr1",
             "rt-to-rr2",
-            "Registers",
+            "registers",
         ],
     },
     EX: {
         components: [
-            "Register",
-            "Multiplexer", // ALUSrc
-            "ALU",
+            "registers",
+            "alusrc-mux",
+            "alu",
         ],
         wires: [
             "rd1-to-alu",
@@ -54,32 +54,32 @@ export const R_INSTRUCTION_FLOW = {
         //     "aluop-signal"
         // ],
         critical: [
-            "Register",
+            "registers",
             "rd2-to-alusrc",
-            "Multiplexer", // ALUSrc
+            "alusrc-mux",
             "alusrc-to-alu",
-            "ALU",
+            "alu",
         ],
     },
     MEM: { // R-type doesn't access memory
         components: [
-            "ALU",
-            "Multiplexer", // MemToReg
+            "alu",
+            "memtoreg-mux",
         ],
         wires: [
             "alu-to-memtoreg",
         ],
         // controlSignals: [],
         critical: [
-            "ALU",
+            "alu",
             "alu-to-memtoreg",
-            "Multiplexer", // MemToReg
+            "memtoreg-mux",
         ],
     },
     WB: {
         components: [
-            "Registers",
-            "Multiplexer", // MemToReg for ALU result
+            "registers",
+            "memtoreg-mux",
         ],
         wires: [
             "memtoreg-to-wd",
@@ -89,9 +89,9 @@ export const R_INSTRUCTION_FLOW = {
         //     "memtoreg-signal"
         // ],
         critical: [
-            "Multiplexer", // MemToReg for ALU result
+            "memtoreg-mux",
             "memtoreg-to-wd",
-            "Registers",
+            "registers",
         ],
     },
 }
