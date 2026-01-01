@@ -174,6 +174,7 @@ export const datapathWireCoordinates = [
     {
         id: "rd2-to-dmem",
         points: [
+            { x: 670, y: 575 },
             { x: 770, y: 575 },
             { x: 770, y: 730 },
             { x: 1110, y: 730 },

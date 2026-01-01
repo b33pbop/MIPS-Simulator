@@ -11,6 +11,7 @@ export default function UserInput({ instruction, setInstruction, setOutput }) {
         event.preventDefault();
         const tokens = tokenizeInstruction(instruction);
         const result = parseInstruction(tokens);
+        console.log(`results: ${result.type}`);
         setOutput(result);
     };
 

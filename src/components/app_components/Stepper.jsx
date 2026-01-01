@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { R_INSTRUCTION_FLOW } from "../../data/instruction_flow/r-instruction-flow";
+import { instructionTypeToInstructionFlowMap } from "../../data/instruction_flow/instruction-type-map";
 import '../../styles/stepper.css'
 
 export default function Stepper({ setActiveComponents, instructionType }) {
-    const stages = Object.keys(R_INSTRUCTION_FLOW); // ["IF", "ID", "EX", "MEM", "WB"]
+    const instructionFlow = instructionTypeToInstructionFlowMap[instructionType];
+    const stages = Object.keys(instructionFlow); // ["IF", "ID", "EX", "MEM", "WB"]
     const [currentStep, setCurrentStep] = useState(0);
 
     useEffect(() => {
@@ -29,18 +30,16 @@ export default function Stepper({ setActiveComponents, instructionType }) {
     };
 
     const activateStage = (stage) => {
-        const flowStage = R_INSTRUCTION_FLOW[stage];
+        const flowStage = instructionFlow[stage];
         const updatedComponents = {};
-        flowStage.components.forEach(c => updatedComponents[c] = true); // activate all stage components
-        flowStage.wires.forEach(w => updatedComponents[w] = true); // activate all stage wires
+        flowStage.critical.forEach(c => updatedComponents[c] = true); // activate all stage wires and components
         setActiveComponents(prev => ({ ...prev, ...updatedComponents }));
     };
 
     const deactivateStage = (stage) => {
-        const flowStage = R_INSTRUCTION_FLOW[stage];
+        const flowStage = instructionFlow[stage];
         const updatedComponents = {};
-        flowStage.components.forEach(c => updatedComponents[c] = false); // deactivate all stage components
-        flowStage.wires.forEach(w => updatedComponents[w] = false); // deactivate all stage wires
+        flowStage.critical.forEach(c => updatedComponents[c] = false); // activate all stage wires and components
         setActiveComponents(prev => ({ ...prev, ...updatedComponents }));
     }
 

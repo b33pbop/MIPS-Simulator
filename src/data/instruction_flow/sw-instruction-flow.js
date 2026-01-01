@@ -1,4 +1,4 @@
-export const R_INSTRUCTION_FLOW = {
+export const SW_INSTRUCTION_FLOW = {
     IF: {
         critical: [
             "instruction-memory",
@@ -16,36 +16,30 @@ export const R_INSTRUCTION_FLOW = {
         nonCritical: [
             "opcode-to-control",
 
-            "rd-to-regdst",
+            "rt-to-regdst",
             "regdst-mux",
             "regdst-to-wr",
+
+            "funct-to-signext",
+            "sign-extend",
+            "funct-to-signext",
         ],
     },
     EX: {
         critical: [
             "registers",
-            "rd2-to-alusrc",
-            "alusrc-mux",
-            "alusrc-to-alu",
+            "rd1-to-alu",
             "alu",
         ],
-        nonCritical: [
-            "rd1-to-alu",
-        ],
+        nonCritical: [],
     },
     MEM: {
         critical: [
             "alu",
-            "alu-to-memtoreg",
-            "memtoreg-mux",
+            "data-memory",
+            "alu-to-dmem",
         ],
-        nonCritical: [],
+        nonCritical: ["rd2-to-dmem",],
     },
-    WB: {
-        critical: [
-            "memtoreg-mux",
-            "memtoreg-to-wd",
-        ],
-        nonCritical: [],
-    },
+    // No write back to register for store word
 }
