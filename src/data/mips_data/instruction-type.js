@@ -1,5 +1,15 @@
-// Currently only commonly used instructions are supported
 // There are 3 types of formats: R, I, J
+
+// There are 8 types of paths:
+// 1. R_ALU – R-type register–register ALU ops
+// 2. I_ALU_SIGNED – immediate ALU ops using sign-extended imm
+// 3. I_ALU_UNSIGNED – immediate ALU ops using zero-extended imm
+// 4. LOAD – lw
+// 5. STORE – sw
+// 6. BRANCH – beq, bne
+// 7. JUMP – j
+// 8. LUI – special immediate path (not a normal ALU op)
+
 // There are 5 types of operands:
 // 1. register -> r
 // 2. signed immediate -> si
@@ -8,75 +18,99 @@
 // 5. memory address for load/store instructions, offset(register) format -> si(r)
 export const INSTRUCTIONS = {
     add: {
-        format: "R",
-        operands: ["r", "r", "r"] // e.g. rd rs rt 
-    },
-    addi: {
-        format: "I",
-        operands: ["r", "r", "si"]
-    },
-    and: {
-        format: "R",
+        encoding: "R",
+        path: "R_ALU",
         operands: ["r", "r", "r"]
     },
-    andi: {
-        format: "I",
-        operands: ["r", "r", "ui"]
+    sub: {
+        encoding: "R",
+        path: "R_ALU",
+        operands: ["r", "r", "r"]
     },
-    beq: {
-        format: "I",
-        operands: ["r", "r", "l"]
-    },
-    bne: {
-        format: "I",
-        operands: ["r", "r", "l"]
-    },
-    j: {
-        format: "J",
-        operands: ["l"]
-    },
-    lui: {
-        format: "I",
-        operands: ["r", "r", "ui"]
-    },
-    lw: {
-        format: "I",
-        operands: ["r", "si(r)"]
-    },
-    nor: {
-        format: "R",
+    and: {
+        encoding: "R",
+        path: "R_ALU",
         operands: ["r", "r", "r"]
     },
     or: {
-        format: "R",
+        encoding: "R",
+        path: "R_ALU",
         operands: ["r", "r", "r"]
     },
-    ori: {
-        format: "I",
-        operands: ["r", "r", "ui"]
+    nor: {
+        encoding: "R",
+        path: "R_ALU",
+        operands: ["r", "r", "r"]
     },
     slt: {
-        format: "R",
+        encoding: "R",
+        path: "R_ALU",
         operands: ["r", "r", "r"]
     },
-    slti: {
-        format: "I",
-        operands: ["r", "r", "si"]
-    },
     sll: {
-        format: "R",
+        encoding: "R",
+        path: "R_SHIFT",
         operands: ["r", "r", "i"]
     },
     srl: {
-        format: "R",
+        encoding: "R",
+        path: "R_SHIFT",
         operands: ["r", "r", "i"]
     },
-    sw: {
-        format: "I",
+
+    addi: {
+        encoding: "I",
+        path: "I_ALU_SIGNED",
+        operands: ["r", "r", "si"]
+    },
+    slti: {
+        encoding: "I",
+        path: "I_ALU_SIGNED",
+        operands: ["r", "r", "si"]
+    },
+
+    andi: {
+        encoding: "I",
+        path: "I_ALU_UNSIGNED",
+        operands: ["r", "r", "ui"]
+    },
+    ori: {
+        encoding: "I",
+        path: "I_ALU_UNSIGNED",
+        operands: ["r", "r", "ui"]
+    },
+
+    lui: {
+        encoding: "I",
+        path: "LUI",
+        operands: ["r", "r", "ui"]
+    },
+
+    lw: {
+        encoding: "I",
+        path: "LOAD",
         operands: ["r", "si(r)"]
     },
-    sub: {
-        format: "R",
-        operands: ["r", "r", "r"]
+    sw: {
+        encoding: "I",
+        path: "STORE",
+        operands: ["r", "si(r)"]
     },
-}
+
+    beq: {
+        encoding: "I",
+        path: "BRANCH",
+        operands: ["r", "r", "l"]
+    },
+    bne: {
+        encoding: "I",
+        path: "BRANCH",
+        operands: ["r", "r", "l"]
+    },
+
+    j: {
+        encoding: "J",
+        path: "JUMP",
+        operands: ["l"]
+    }
+};

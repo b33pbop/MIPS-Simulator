@@ -19,7 +19,7 @@ export function parseInstruction(tokens) {
     if (!isValidMnemonic(mnemonic)) {
         return {
             "output": "Invalid instruction! The instruction entered might not be supported or has an invalid format!",
-            "type": null,
+            "path": null,
         };
     }
 
@@ -28,7 +28,7 @@ export function parseInstruction(tokens) {
     if (operands.length !== expectedOperands.length) {
         return {
             "output": "Invalid number of operands!",
-            "type": null
+            "path": null
         };
     }
 
@@ -48,7 +48,7 @@ export function parseInstruction(tokens) {
     // instruction is valid -> simulate the instruction
     return {
         "output": "INSTRUCTION IS VALID!",
-        "type": INSTRUCTIONS.mnemonic,
+        "path": INSTRUCTIONS[mnemonic].path,
     };
 }
 

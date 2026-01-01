@@ -10,12 +10,14 @@ function App() {
      // e.g. {"Valid instruction", INSTRUCTIONS.add}
     const [output, setOutput] = useState({
         output: "",
-        type: null,
+        path: null,
     });
 
     const allElements = componentsToElementParser();
 
     const [activeComponents, setActiveComponents] = useState(allElements);
+
+    console.log(`Output path: ${output.path}`);
 
     return (
         <div className='app'>
@@ -26,7 +28,9 @@ function App() {
                 setOutput={setOutput}
             />
             <p>{output.output}</p>
-            {output.type !== null ? <Stepper setActiveComponents={setActiveComponents} /> : <></>}
+            {output.path !== null 
+                ? <Stepper setActiveComponents={setActiveComponents} instructionType={output.path} />
+                : <></>}
             <Circuit activeComponents={activeComponents}/>
         </div>
     )
