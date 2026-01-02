@@ -40,7 +40,7 @@ export function parseInstruction(tokens) {
         if (!isValidOperand(operand, operandType)) {
             return {
                 "output": `Invalid operand ${operand} for ${mnemonic}`,
-                "type": null
+                "path": null
             };
         }
     }
