@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function ALU({ x, y, active=false }) {
     const width = 110;
     const height = 240;
@@ -13,8 +15,8 @@ export default function ALU({ x, y, active=false }) {
                     0,${height} 
                 `}
                 fill="#FFFFFF"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
             />
 
             {/* isZero output */}

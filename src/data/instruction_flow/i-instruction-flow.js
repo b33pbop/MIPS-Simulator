@@ -1,4 +1,4 @@
-export const LW_INSTRUCTION_FLOW = {
+export const I_FORMAT_INSTRUCTION_FLOW = {
     IF: {
         critical: [
             "instruction-memory",
@@ -10,8 +10,8 @@ export const LW_INSTRUCTION_FLOW = {
     ID: {
         critical: [
             "rs-to-rr1",
-            "rt-to-rr2",
             "registers",
+            "rt-to-rr2",
         ],
         nonCritical: [
             "opcode-to-control",
@@ -30,19 +30,18 @@ export const LW_INSTRUCTION_FLOW = {
     },
     EX: {
         critical: [
-            "registers",
             "rd1-to-alu",
+            "signext-to-alusrc",
+            "alusrc-mux",
+            "alusrc-to-alu",
             "alu",
         ],
         nonCritical: [],
     },
     MEM: {
         critical: [
-            "alu",
+            "alu-to-memtoreg",
             "memtoreg-mux",
-            "data-memory",
-            "alu-to-dmem",
-            "dmem-to-memtoreg",
         ],
         nonCritical: [],
     },
@@ -53,4 +52,4 @@ export const LW_INSTRUCTION_FLOW = {
         ],
         nonCritical: [],
     },
-}
+};

@@ -15,6 +15,7 @@ export const SW_INSTRUCTION_FLOW = {
         ],
         nonCritical: [
             "opcode-to-control",
+            "control",
 
             "rt-to-regdst",
             "regdst-mux",
@@ -23,6 +24,9 @@ export const SW_INSTRUCTION_FLOW = {
             "funct-to-signext",
             "sign-extend",
             "funct-to-signext",
+
+            "funct-to-alucontrol",
+            "alu-control",
         ],
     },
     EX: {

@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function Registers({ x, y, active=false }) {
     const width = 150;
     const height = 250;
@@ -7,8 +9,8 @@ export default function Registers({ x, y, active=false }) {
                 width={width}
                 height={height} 
                 fill="#ffee99"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
             />
             <text x="35" y={height * (1/6)} textAnchor="end">RR1</text>
             <text x={width - 35} y={height * (1/6)} textAnchor="start">RD1</text>

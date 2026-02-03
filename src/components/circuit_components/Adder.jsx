@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function Adder({ x, y, active=false }) {
     const width = 80;
     const height = 90;
@@ -12,8 +14,8 @@ export default function Adder({ x, y, active=false }) {
                     0,${height}
                 `}
                 fill="#FFFFFF"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
             />
 
             <text

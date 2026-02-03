@@ -38,6 +38,7 @@ export const datapathWireCoordinates = [
     {
         id: "rt-to-regdst",
         points: [
+            { x: 250, y: 480 },
             { x: 300, y: 472 },
             { x: 300, y: 560 },
             { x: 400, y: 560 },
@@ -81,6 +82,8 @@ export const datapathWireCoordinates = [
     {
         id: "signext-to-alusrc",
         points: [
+            { x: 670, y: 760 },
+            { x: 735, y: 760 },
             { x: 735, y: 665 },
             { x: 800, y: 665 },
         ],
@@ -208,6 +211,7 @@ export const datapathWireCoordinates = [
     {
         id: "alu-to-memtoreg",
         points: [
+            { x: 1030, y: 565 },
             { x: 1070, y: 565 },
             { x: 1070, y: 770 },
             { x: 1340, y: 770 },

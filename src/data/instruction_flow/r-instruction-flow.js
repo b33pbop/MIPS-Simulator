@@ -15,10 +15,14 @@ export const R_INSTRUCTION_FLOW = {
         ],
         nonCritical: [
             "opcode-to-control",
+            "control",
 
             "rd-to-regdst",
             "regdst-mux",
             "regdst-to-wr",
+
+            "funct-to-alucontrol",
+            "alu-control",
         ],
     },
     EX: {

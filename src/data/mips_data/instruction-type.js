@@ -1,14 +1,14 @@
 // There are 3 types of formats: R, I, J
 
-// There are 8 types of paths:
+// There are 9 types of paths:
 // 1. R_ALU – R-type register–register ALU ops
-// 2. I_ALU_SIGNED – immediate ALU ops using sign-extended imm
-// 3. I_ALU_UNSIGNED – immediate ALU ops using zero-extended imm
-// 4. LOAD – lw
-// 5. STORE – sw
-// 6. BRANCH – beq, bne
-// 7. JUMP – j
-// 8. LUI – special immediate path (not a normal ALU op)
+// 2. R_SHIFT - R-type shift
+// 3. I - I-type instructions
+// 5. LOAD – lw
+// 6. STORE – sw
+// 7. BRANCH – beq, bne
+// 8. JUMP – j
+// 9. LUI – special immediate path (not a normal ALU op)
 
 // There are 5 types of operands:
 // 1. register -> r
@@ -57,26 +57,24 @@ export const INSTRUCTIONS = {
         path: "R_SHIFT",
         operands: ["r", "r", "i"]
     },
-
     addi: {
         encoding: "I",
-        path: "I_ALU_SIGNED",
+        path: "I",
         operands: ["r", "r", "si"]
     },
     slti: {
         encoding: "I",
-        path: "I_ALU_SIGNED",
+        path: "I",
         operands: ["r", "r", "si"]
     },
-
     andi: {
         encoding: "I",
-        path: "I_ALU_UNSIGNED",
+        path: "I",
         operands: ["r", "r", "ui"]
     },
     ori: {
         encoding: "I",
-        path: "I_ALU_UNSIGNED",
+        path: "I",
         operands: ["r", "r", "ui"]
     },
 
@@ -85,7 +83,6 @@ export const INSTRUCTIONS = {
         path: "LUI",
         operands: ["r", "r", "ui"]
     },
-
     lw: {
         encoding: "I",
         path: "LOAD",
@@ -96,7 +93,6 @@ export const INSTRUCTIONS = {
         path: "STORE",
         operands: ["r", "si(r)"]
     },
-
     beq: {
         encoding: "I",
         path: "BRANCH",
@@ -107,7 +103,6 @@ export const INSTRUCTIONS = {
         path: "BRANCH",
         operands: ["r", "r", "l"]
     },
-
     j: {
         encoding: "J",
         path: "JUMP",

@@ -1,34 +1,50 @@
 #user-input-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-    height: 50px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 #user-input-div p {
-    color: black;
-    margin-right: 5px;
-    font-size: 20px;
+	color: #374151;
+	margin: 0;
+	font-size: 14px;
+	white-space: nowrap;
 }
 
 #user-input-div form {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 #instruction-input {
-    background-color: white;
-    color: black;
-    align-items: center;
-    font-size: 20px;
+	background-color: white;
+	color: #1f2937;
+	font-size: 14px;
+	padding: 8px 12px;
+	border: 1px solid #d1d5db;
+	border-radius: 6px;
+	min-width: 200px;
+	font-family: monospace;
+}
+
+#instruction-input:focus {
+	outline: none;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
 #submit-button {
-    margin-left: 10px;
-    font-size: 20px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	padding: 8px 16px;
+	font-size: 14px;
+	background: #2563eb;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+#submit-button:hover {
+	background: #1d4ed8;
 }

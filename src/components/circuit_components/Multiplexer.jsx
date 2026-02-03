@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function Multiplexer({ x, y, active=false }) {
     const width = 40;
     const height = 120;
@@ -18,8 +20,8 @@ export default function Multiplexer({ x, y, active=false }) {
                 width={width}
                 height={height}
                 fill="#F2F2F2"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
                 rx="8"
             />
             <text 

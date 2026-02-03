@@ -1,6 +1,12 @@
+import { getStrokeColor, isActive } from '../../utils/active-state-colors';
+
 export default function Wire({ points, arrowEnd=false, label=false, isDatapath=true, active=false }) {
     const pointsStr = points.map(p => `${p.x},${p.y}`).join(" ");
-    const stroke = active ? "blue" : (isDatapath ? "black" : "red")
+    
+    // Determine stroke color based on active state (critical=blue, nonCritical=green)
+    const defaultColor = isDatapath ? "black" : "red";
+    const stroke = getStrokeColor(active, defaultColor);
+    const activeState = isActive(active);
 
     return (
         <>
@@ -8,7 +14,7 @@ export default function Wire({ points, arrowEnd=false, label=false, isDatapath=t
                 points={pointsStr}
                 fill="none"
                 stroke={stroke}
-                strokeWidth={active ? 3 : 2}
+                strokeWidth={activeState ? 3 : 2}
                 strokeLinecap="round"
                 markerEnd={arrowEnd ? "url(#arrowhead)" : null}
             />

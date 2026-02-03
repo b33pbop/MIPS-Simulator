@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function DataMemory({ x, y, active=false }) {
     const width = 170;
     const height = 210;
@@ -7,8 +9,8 @@ export default function DataMemory({ x, y, active=false }) {
                 width={width}
                 height={height}
                 fill="#ffee99"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
             />
 
             {/* "Address" label */}

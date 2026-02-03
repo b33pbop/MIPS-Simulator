@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function SignExtend({ x, y, active=false }) {
     const width = 150;
     const height = 80;
@@ -7,8 +9,8 @@ export default function SignExtend({ x, y, active=false }) {
                 width={width}
                 height={height}
                 fill="#F2F2F2"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
                 rx="80"
             />
             <text x={width/2} y={height/2 - 2} textAnchor="middle">Sign</text>

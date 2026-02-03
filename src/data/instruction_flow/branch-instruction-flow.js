@@ -1,4 +1,4 @@
-export const LW_INSTRUCTION_FLOW = {
+export const BRANCH_INSTRUCTION_FLOW = {
     IF: {
         critical: [
             "instruction-memory",
@@ -17,10 +17,6 @@ export const LW_INSTRUCTION_FLOW = {
             "opcode-to-control",
             "control",
 
-            "rt-to-regdst",
-            "regdst-mux",
-            "regdst-to-wr",
-
             "funct-to-signext",
             "sign-extend",
 
@@ -30,27 +26,34 @@ export const LW_INSTRUCTION_FLOW = {
     },
     EX: {
         critical: [
-            "registers",
             "rd1-to-alu",
+            "rd2-to-alusrc",
+            "alusrc-mux",
+            "alusrc-to-alu",
             "alu",
         ],
-        nonCritical: [],
+        nonCritical: [
+            "signext-to-shift",
+            "left-shift-2bit",
+            "shift-to-adder",
+            "adder2",
+        ],
     },
     MEM: {
         critical: [
-            "alu",
-            "memtoreg-mux",
-            "data-memory",
-            "alu-to-dmem",
-            "dmem-to-memtoreg",
+            "iszero-signal",
+            "and-gate",
+            "pcsrc-mux",
+            "pcsrc-signal",
         ],
-        nonCritical: [],
+        nonCritical: [
+            "adder-to-pcsrc-bottom",
+            "adder-to-pcsrc-top",
+            "pcsrc-to-pc",
+        ],
     },
     WB: {
-        critical: [
-            "memtoreg-mux",
-            "memtoreg-to-wd",
-        ],
+        critical: [],
         nonCritical: [],
     },
-}
+};

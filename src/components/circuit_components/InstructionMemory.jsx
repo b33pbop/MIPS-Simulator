@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function InstructionMemory({ x, y, active=false }) {
     const width = 150;
     const height = 170;
@@ -14,8 +16,8 @@ export default function InstructionMemory({ x, y, active=false }) {
                 width={width}
                 height={height}
                 fill="#E6E5BF"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
             />
             <text 
                 x={width/2} y="25" 

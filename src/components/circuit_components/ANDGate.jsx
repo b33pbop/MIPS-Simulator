@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function ANDGate({ x, y, active=false }) {
     const width = 40;
     const height = 40;
@@ -15,8 +17,8 @@ export default function ANDGate({ x, y, active=false }) {
                     Z
                 `}
                 fill="#ffaaaa"
-                stroke="red"
-                strokeWidth={active ? 3 : 2}
+                stroke={getStrokeColor(active, "red")}
+                strokeWidth={getStrokeWidth(active, 3, 2)}
             />
         </g>
     );

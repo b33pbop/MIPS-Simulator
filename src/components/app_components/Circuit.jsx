@@ -18,6 +18,8 @@ import { junctions } from '../../data/wires/datapath-junction'
 import { controlPathWireCoordinates } from '../../data/wires/control-path-wire'
 import { getCircuitComponents } from '../../data/circuit_components/circuit-components-map'
 
+import { ACTIVE_COLORS } from '../../utils/active-state-colors'
+
 const Components = {
     InstructionMemory,
     PC,
@@ -38,7 +40,7 @@ const circuitComponents = getCircuitComponents(Components);
 
 export default function Circuit({activeComponents}) {
     return (
-        <svg width="100%" height="80vh" viewBox="0 0 1550 900" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 1550 950" preserveAspectRatio="xMidYMid meet">
             <defs>
                 <marker
                     id="arrowhead"
@@ -90,6 +92,20 @@ export default function Circuit({activeComponents}) {
                     active={activeComponents[wire.id]}
                 />
             ))}
+
+            {/* Path Legend */}
+            <g transform="translate(1350, 20)">
+                <rect width="180" height="80" fill="white" stroke="#ccc" strokeWidth="1" rx="5" />
+                <text x="90" y="18" textAnchor="middle" fontWeight="bold" fontSize="14">Path Legend</text>
+                
+                {/* Critical Path */}
+                <line x1="15" y1="40" x2="45" y2="40" stroke={ACTIVE_COLORS.critical} strokeWidth="3" />
+                <text x="55" y="44" fontSize="12">Critical Path</text>
+                
+                {/* Non-Critical Path */}
+                <line x1="15" y1="60" x2="45" y2="60" stroke={ACTIVE_COLORS.nonCritical} strokeWidth="3" />
+                <text x="55" y="64" fontSize="12">Non-Critical Path</text>
+            </g>
         </svg>
     )
 }

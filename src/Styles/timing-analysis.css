@@ -1,0 +1,111 @@
+.timing-analysis {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.timing-analysis.disabled {
+    opacity: 0.8;
+}
+
+.timing-analysis .placeholder-message {
+    color: #6b7280;
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+.timing-analysis h3 {
+    margin: 0 0 10px 0;
+    color: #1f2937;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timing-analysis .instruction-info {
+    background: #eff6ff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    color: #1d4ed8;
+    font-size: 12px;
+}
+
+.timing-analysis .path-description {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #f9fafb;
+    border-radius: 4px;
+    border-left: 3px solid #2563eb;
+}
+
+.timing-analysis .path-description .label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    color: #555;
+    font-size: 11px;
+}
+
+.timing-analysis .path-description .path {
+    font-family: monospace;
+    font-size: 11px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.timing-analysis .timing-breakdown table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+}
+
+.timing-analysis .timing-breakdown th,
+.timing-analysis .timing-breakdown td {
+    padding: 6px 8px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.timing-analysis .timing-breakdown th {
+    background: #e9ecef;
+    font-weight: 600;
+    color: #495057;
+}
+
+.timing-analysis .timing-breakdown tr.active {
+    transition: background-color 0.3s ease;
+}
+
+.timing-analysis .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 8px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.timing-analysis .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #666;
+}
+
+.timing-analysis .legend-item .color-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+};
+    height: 16px;
+    border-radius: 3px;
+}

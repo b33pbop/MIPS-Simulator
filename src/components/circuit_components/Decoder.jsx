@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function Decoder({ x, y, active=false }) {
     const width = 50;
     const height = 600;
@@ -9,8 +11,8 @@ export default function Decoder({ x, y, active=false }) {
                 width={width}
                 height={height} 
                 fill="#ffee99" 
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
             />
             {[...Array(numSections)].map((_, i) => (
                 <line

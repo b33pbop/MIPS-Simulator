@@ -1,14 +1,20 @@
+import { getStrokeColor, getStrokeWidth, isActive } from '../../utils/active-state-colors';
+
 export default function Control({ x, y, active=false }) {
     const width = 100;
     const height = 190;
+    // Keep custom color when inactive, use active color when active
+    const strokeColor = isActive(active) ? getStrokeColor(active) : "#9D5343";
+    const strokeWidth = isActive(active) ? getStrokeWidth(active) : 3;
+    
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
                 width={width}
                 height={height} 
                 fill="#F0DED9"
-                stroke="#9D5343"
-                strokeWidth={3}
+                stroke={strokeColor}
+                strokeWidth={strokeWidth}
                 rx="15"
             />
             <text 

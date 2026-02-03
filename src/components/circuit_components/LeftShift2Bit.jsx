@@ -1,3 +1,5 @@
+import { getStrokeColor, getStrokeWidth } from '../../utils/active-state-colors';
+
 export default function LeftShift2Bit({ x, y, active=false }) {
     const width = 170;
     const height = 60;
@@ -7,8 +9,8 @@ export default function LeftShift2Bit({ x, y, active=false }) {
                 width={width}
                 height={height}
                 fill="#ffee99"
-                stroke={active ? "blue" : "black"}
-                strokeWidth={active ? 3 : 1}
+                stroke={getStrokeColor(active)}
+                strokeWidth={getStrokeWidth(active)}
                 rx="80"
             />
             <text x={width/2} y={height/2 - 2} textAnchor="middle">Left Shift</text>
