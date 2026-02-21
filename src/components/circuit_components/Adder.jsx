@@ -13,7 +13,7 @@ export default function Adder({ x, y, active=false }) {
                     ${width},${height - slant}
                     0,${height}
                 `}
-                fill="#FFFFFF"
+                fill="#f0f9ff"
                 stroke={getStrokeColor(active)}
                 strokeWidth={getStrokeWidth(active)}
             />
@@ -23,6 +23,8 @@ export default function Adder({ x, y, active=false }) {
                 y={height / 2}
                 textAnchor="middle"
                 dominantBaseline="middle"
+                fill="#0369a1"
+                fontWeight="600"
             >
                 Add
             </text>

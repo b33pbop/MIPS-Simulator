@@ -1,20 +1,21 @@
 /**
  * Utility functions for handling critical/non-critical path colors
+ * VisualGo-inspired color scheme - Light Theme
  */
 
 export const ACTIVE_COLORS = {
-    critical: "#2563eb",    // blue - critical path
-    nonCritical: "#16a34a", // green - non-critical path
-    inactive: "black",      // default inactive color
+    critical: "#2563eb",    // vibrant blue - critical path
+    nonCritical: "#d97706", // darker amber/orange - non-critical path
+    inactive: "#94a3b8",    // muted gray - default inactive color
 };
 
 /**
  * Get stroke color based on active state
  * @param {string|boolean} active - "critical", "nonCritical", or false
- * @param {string} defaultColor - default color when inactive (default: "black")
+ * @param {string} defaultColor - default color when inactive (default: "#64748b")
  * @returns {string} - the stroke color
  */
-export function getStrokeColor(active, defaultColor = "black") {
+export function getStrokeColor(active, defaultColor = "#64748b") {
     if (active === "critical") return ACTIVE_COLORS.critical;
     if (active === "nonCritical") return ACTIVE_COLORS.nonCritical;
     return defaultColor;

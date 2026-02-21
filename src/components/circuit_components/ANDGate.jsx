@@ -16,8 +16,8 @@ export default function ANDGate({ x, y, active=false }) {
                     H 0
                     Z
                 `}
-                fill="#ffaaaa"
-                stroke={getStrokeColor(active, "red")}
+                fill="#f5f3ff"
+                stroke={getStrokeColor(active, "#7c3aed")}
                 strokeWidth={getStrokeWidth(active, 3, 2)}
             />
         </g>

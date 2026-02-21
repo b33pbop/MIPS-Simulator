@@ -9,7 +9,7 @@ export default function Multiplexer({ x, y, active=false }) {
         dominantBaseline: "middle",
         fontSize: "25px",
         fontWeight: "bold",
-        fill: "#32641A",
+        fill: "#047857",
         writingMode: "vertical-rl",
         textOrientation: "upright",
     }
@@ -19,7 +19,7 @@ export default function Multiplexer({ x, y, active=false }) {
             <rect 
                 width={width}
                 height={height}
-                fill="#F2F2F2"
+                fill="#ecfdf5"
                 stroke={getStrokeColor(active)}
                 strokeWidth={getStrokeWidth(active)}
                 rx="8"

@@ -8,13 +8,13 @@ export default function LeftShift2Bit({ x, y, active=false }) {
             <rect 
                 width={width}
                 height={height}
-                fill="#ffee99"
+                fill="#fef3c7"
                 stroke={getStrokeColor(active)}
                 strokeWidth={getStrokeWidth(active)}
                 rx="80"
             />
-            <text x={width/2} y={height/2 - 2} textAnchor="middle">Left Shift</text>
-            <text x={width/2} y={height/2 + 13} textAnchor="middle">2-Bits</text>
+            <text x={width/2} y={height/2 - 2} textAnchor="middle" fill="#b45309" fontWeight="600">Left Shift</text>
+            <text x={width/2} y={height/2 + 13} textAnchor="middle" fill="#b45309" fontWeight="600">2-Bits</text>
         </g>
     );
 }

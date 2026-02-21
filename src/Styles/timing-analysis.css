@@ -1,111 +1,233 @@
+/* VisualGo-inspired Timing Analysis Styles */
+
 .timing-analysis {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 14px;
-    font-size: 13px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+	padding: var(--space-lg);
 }
 
 .timing-analysis.disabled {
-    opacity: 0.8;
+	opacity: 0.7;
 }
 
-.timing-analysis .placeholder-message {
-    color: #6b7280;
-    font-style: italic;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 13px;
+.timing-analysis-header {
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-lg);
+}
+
+.timing-icon {
+	width: 32px;
+	height: 32px;
+	background: var(--primary-accent-light);
+	border-radius: var(--radius-md);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--primary-accent);
 }
 
 .timing-analysis h3 {
-    margin: 0 0 10px 0;
-    color: #1f2937;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+	margin: 0;
+	color: var(--text-primary);
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
 }
 
+.timing-analysis .placeholder-message {
+	color: var(--text-muted);
+	font-style: italic;
+	padding: var(--space-xl) var(--space-md);
+	text-align: center;
+	font-size: 0.8125rem;
+	background: var(--bg-tertiary);
+	border-radius: var(--radius-md);
+	border: 1px dashed var(--border-color);
+}
+
+/* Instruction Info Badge */
 .timing-analysis .instruction-info {
-    background: #eff6ff;
-    padding: 8px 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    color: #1d4ed8;
-    font-size: 12px;
+	background: linear-gradient(
+		135deg,
+		var(--primary-accent-light) 0%,
+		rgba(45, 212, 191, 0.15) 100%
+	);
+	padding: var(--space-md);
+	border-radius: var(--radius-md);
+	margin-bottom: var(--space-md);
+	border: 1px solid var(--primary-accent);
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
 }
 
+.timing-analysis .instruction-info strong {
+	color: var(--primary-accent);
+	font-size: 0.9375rem;
+	font-family: var(--font-mono);
+}
+
+/* Critical Path Description */
 .timing-analysis .path-description {
-    margin-bottom: 10px;
-    padding: 8px;
-    background: #f9fafb;
-    border-radius: 4px;
-    border-left: 3px solid #2563eb;
+	margin-bottom: var(--space-md);
+	padding: var(--space-md);
+	background: var(--bg-card);
+	border-radius: var(--radius-md);
+	border-left: 3px solid var(--secondary-orange);
 }
 
 .timing-analysis .path-description .label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 4px;
-    color: #555;
-    font-size: 11px;
+	font-weight: 600;
+	display: block;
+	margin-bottom: var(--space-xs);
+	color: var(--secondary-orange);
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
 }
 
 .timing-analysis .path-description .path {
-    font-family: monospace;
-    font-size: 11px;
-    color: #333;
-    line-height: 1.4;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	color: var(--text-secondary);
+	line-height: 1.5;
+}
+
+/* Timing Breakdown Table */
+.timing-analysis .timing-breakdown {
+	margin-bottom: var(--space-md);
 }
 
 .timing-analysis .timing-breakdown table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 12px;
-    background: #fff;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: var(--bg-card);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	border: 1px solid var(--border-color);
 }
 
 .timing-analysis .timing-breakdown th,
 .timing-analysis .timing-breakdown td {
-    padding: 6px 8px;
-    text-align: left;
-    border: 1px solid #dee2e6;
-    font-size: 12px;
+	padding: var(--space-sm) var(--space-md);
+	text-align: left;
+	border-bottom: 1px solid var(--border-color);
+	font-size: 0.8125rem;
 }
 
 .timing-analysis .timing-breakdown th {
-    background: #e9ecef;
-    font-weight: 600;
-    color: #495057;
+	background: var(--bg-tertiary);
+	font-weight: 600;
+	color: var(--text-muted);
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.timing-analysis .timing-breakdown tr:last-child td {
+	border-bottom: none;
+}
+
+.timing-analysis .timing-breakdown tr {
+	transition: all var(--transition-fast);
+}
+
+.timing-analysis .timing-breakdown tr:hover {
+	background: var(--bg-hover);
 }
 
 .timing-analysis .timing-breakdown tr.active {
-    transition: background-color 0.3s ease;
+	background: var(--primary-accent-light) !important;
 }
 
+.timing-analysis .timing-breakdown tr.active td {
+	color: var(--primary-accent);
+}
+
+.timing-analysis .timing-breakdown td:first-child {
+	font-weight: 600;
+	color: var(--text-primary);
+}
+
+.timing-analysis .timing-breakdown td:last-child {
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	color: var(--text-secondary);
+}
+
+/* Stage Badge */
+.stage-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	padding: var(--space-xs) var(--space-sm);
+	background: var(--bg-tertiary);
+	border-radius: var(--radius-sm);
+	font-weight: 700;
+	font-size: 0.6875rem;
+}
+
+.stage-badge.active {
+	background: var(--primary-accent);
+	color: var(--primary-dark);
+}
+
+/* Legend */
 .timing-analysis .legend {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 8px;
-    border-top: 1px solid #e5e7eb;
+	display: flex;
+	gap: var(--space-md);
+	flex-wrap: wrap;
+	padding: var(--space-md);
+	background: var(--bg-card);
+	border-radius: var(--radius-md);
+	border: 1px solid var(--border-color);
 }
 
 .timing-analysis .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: #666;
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	font-size: 0.75rem;
+	color: var(--text-secondary);
 }
 
 .timing-analysis .legend-item .color-box {
-    width: 14px;
-    height: 14px;
-    border-radius: 3px;
-};
-    height: 16px;
-    border-radius: 3px;
+	width: 16px;
+	height: 16px;
+	border-radius: var(--radius-sm);
+	border: 2px solid transparent;
+}
+
+/* Performance Metrics */
+.performance-metrics {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-sm);
+	margin-bottom: var(--space-md);
+}
+
+.metric-card {
+	background: var(--bg-card);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-md);
+	padding: var(--space-md);
+	text-align: center;
+}
+
+.metric-value {
+	font-family: var(--font-mono);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--primary-accent);
+}
+
+.metric-label {
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--text-muted);
+	margin-top: var(--space-xs);
 }

@@ -14,7 +14,7 @@ export default function ALU({ x, y, active=false }) {
                     ${width},${height - slant}
                     0,${height} 
                 `}
-                fill="#FFFFFF"
+                fill="#f0f9ff"
                 stroke={getStrokeColor(active)}
                 strokeWidth={getStrokeWidth(active)}
             />
@@ -25,6 +25,8 @@ export default function ALU({ x, y, active=false }) {
                 y={slant + 20}
                 textAnchor="end"
                 dominantBaseline="middle"
+                fill="#475569"
+                fontSize="12"
             >
                 is0
             </text>
@@ -36,6 +38,8 @@ export default function ALU({ x, y, active=false }) {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 fontWeight="bold"
+                fill="#0369a1"
+                fontSize="16"
             >
                 ALU
             </text>
@@ -46,6 +50,8 @@ export default function ALU({ x, y, active=false }) {
                 y={height - slant - 22}
                 textAnchor="end"
                 dominantBaseline="middle"
+                fill="#475569"
+                fontSize="11"
             >
                 ALU
             </text>
@@ -54,6 +60,8 @@ export default function ALU({ x, y, active=false }) {
                 y={height - slant - 6}
                 textAnchor="end"
                 dominantBaseline="middle"
+                fill="#475569"
+                fontSize="11"
             >
                 result
             </text>

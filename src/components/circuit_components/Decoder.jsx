@@ -10,9 +10,10 @@ export default function Decoder({ x, y, active=false }) {
             <rect 
                 width={width}
                 height={height} 
-                fill="#ffee99" 
+                fill="#fef3c7" 
                 stroke={getStrokeColor(active)}
                 strokeWidth={getStrokeWidth(active)}
+                rx="4"
             />
             {[...Array(numSections)].map((_, i) => (
                 <line
@@ -21,7 +22,7 @@ export default function Decoder({ x, y, active=false }) {
                     y1={(i + 1) * sectionHeight}
                     x2={width}
                     y2={(i + 1) * sectionHeight}
-                    stroke="black"
+                    stroke="#d97706"
                     strokeWidth={1}
                 />
             ))}

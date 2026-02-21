@@ -3,8 +3,9 @@ import { getStrokeColor, isActive } from '../../utils/active-state-colors';
 export default function Wire({ points, arrowEnd=false, label=false, isDatapath=true, active=false }) {
     const pointsStr = points.map(p => `${p.x},${p.y}`).join(" ");
     
-    // Determine stroke color based on active state (critical=blue, nonCritical=green)
-    const defaultColor = isDatapath ? "black" : "red";
+    // Determine stroke color based on active state (critical=blue, nonCritical=orange)
+    // Control path uses purple to distinguish from data paths
+    const defaultColor = isDatapath ? "#64748b" : "#7c3aed";
     const stroke = getStrokeColor(active, defaultColor);
     const activeState = isActive(active);
 

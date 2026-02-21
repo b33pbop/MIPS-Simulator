@@ -4,15 +4,15 @@ export default function ALUControl({ x, y, active=false }) {
     const width = 200;
     const height = 90;
     // Keep custom color when inactive, use active color when active
-    const strokeColor = isActive(active) ? getStrokeColor(active) : "#9D5343";
-    const strokeWidth = isActive(active) ? getStrokeWidth(active) : 3;
+    const strokeColor = isActive(active) ? getStrokeColor(active) : "#7c3aed";
+    const strokeWidth = isActive(active) ? getStrokeWidth(active) : 2;
     
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
                 width={width}
                 height={height} 
-                fill="#F0DED9"
+                fill="#f5f3ff"
                 stroke={strokeColor}
                 strokeWidth={strokeWidth}
                 rx="15"
@@ -21,8 +21,8 @@ export default function ALUControl({ x, y, active=false }) {
                 x={width/2} y={height/2 - 15} 
                 textAnchor="middle" 
                 dominantBaseline="middle"
-                style={{fontSize: "35px", fontWeight: "bold"}}
-                fill="#A92418"
+                style={{fontSize: "32px", fontWeight: "bold"}}
+                fill="#7c3aed"
             >
                 ALU
             </text>
@@ -30,8 +30,8 @@ export default function ALUControl({ x, y, active=false }) {
                 x={width/2} y={height/2 + 20}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                style={{fontSize: "35px", fontWeight: "bold"}}
-                fill="#A92418"
+                style={{fontSize: "32px", fontWeight: "bold"}}
+                fill="#7c3aed"
             >
                 Control
             </text>

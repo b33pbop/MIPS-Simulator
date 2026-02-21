@@ -1,50 +1,179 @@
-#user-input-div {
+/* VisualGo-inspired User Input Styles */
+
+.input-section {
+	padding: var(--space-lg);
+}
+
+.input-label {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-sm);
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--text-muted);
+}
+
+.input-label-icon {
+	color: var(--primary-accent);
+}
+
+#user-input-div {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
 }
 
 #user-input-div p {
-	color: #374151;
-	margin: 0;
-	font-size: 14px;
-	white-space: nowrap;
+	display: none; /* Hidden in new design - using label instead */
 }
 
 #user-input-div form {
 	display: flex;
-	align-items: center;
-	gap: 8px;
+	flex-direction: column;
+	gap: var(--space-sm);
 }
 
 #instruction-input {
-	background-color: white;
-	color: #1f2937;
-	font-size: 14px;
-	padding: 8px 12px;
-	border: 1px solid #d1d5db;
-	border-radius: 6px;
-	min-width: 200px;
-	font-family: monospace;
+	width: 100%;
+	padding: var(--space-md);
+	font-family: var(--font-mono);
+	font-size: 0.9375rem;
+	color: var(--text-primary);
+	background: var(--bg-tertiary);
+	border: 2px solid var(--border-color);
+	border-radius: var(--radius-md);
+	transition: all var(--transition-fast);
 }
 
 #instruction-input:focus {
 	outline: none;
-	border-color: #2563eb;
-	box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+	border-color: var(--primary-accent);
+	box-shadow: 0 0 0 3px var(--primary-accent-light);
+	background: var(--bg-card);
+}
+
+#instruction-input::placeholder {
+	color: var(--text-muted);
+	font-style: italic;
 }
 
 #submit-button {
-	padding: 8px 16px;
-	font-size: 14px;
-	background: #2563eb;
-	color: white;
+	padding: var(--space-md) var(--space-lg);
+	font-size: 0.875rem;
+	font-weight: 600;
+	background: linear-gradient(
+		135deg,
+		var(--primary-accent) 0%,
+		var(--secondary-teal) 100%
+	);
+	color: var(--primary-dark);
 	border: none;
-	border-radius: 6px;
+	border-radius: var(--radius-md);
 	cursor: pointer;
-	transition: background 0.2s;
+	transition: all var(--transition-fast);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
 }
 
 #submit-button:hover {
-	background: #1d4ed8;
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-glow);
+}
+
+#submit-button:active {
+	transform: translateY(0);
+}
+
+/* Instruction Examples */
+.instruction-examples {
+	margin-top: var(--space-md);
+	padding-top: var(--space-md);
+	border-top: 1px solid var(--border-color);
+}
+
+.examples-title {
+	font-size: 0.6875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--text-muted);
+	margin-bottom: var(--space-sm);
+}
+
+.example-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs);
+}
+
+.example-chip {
+	padding: var(--space-xs) var(--space-sm);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	background: var(--bg-tertiary);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-full);
+	color: var(--text-secondary);
+	cursor: pointer;
+	transition: all var(--transition-fast);
+}
+
+.example-chip:hover {
+	background: var(--primary-accent-light);
+	border-color: var(--primary-accent);
+	color: var(--primary-accent);
+}
+
+/* Input Info */
+.input-info {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-sm);
+	padding: var(--space-sm) var(--space-md);
+	background: rgba(59, 130, 246, 0.1);
+	border-radius: var(--radius-md);
+	border-left: 3px solid var(--info);
+	margin-top: var(--space-md);
+}
+
+.input-info-icon {
+	color: var(--info);
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.input-info-text {
+	font-size: 0.75rem;
+	color: var(--text-secondary);
+	line-height: 1.5;
+}
+
+/* Current Instruction Display */
+.current-instruction {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--space-md);
+	background: var(--bg-card);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-md);
+	margin-top: var(--space-md);
+}
+
+.current-instruction-label {
+	font-size: 0.6875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--text-muted);
+}
+
+.current-instruction-value {
+	font-family: var(--font-mono);
+	font-size: 1rem;
+	color: var(--primary-accent);
+	font-weight: 600;
 }

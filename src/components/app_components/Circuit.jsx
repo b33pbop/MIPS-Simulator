@@ -50,8 +50,21 @@ export default function Circuit({activeComponents}) {
                     refY="3"  // vertical middle of arrow
                     orient="auto" // arrow rotates along line direction
                 >
-                    <polygon points="0,0 6,3 0,6" fill="black" />
+                    <polygon points="0,0 6,3 0,6" fill="#64748b" />
                 </marker>
+                <marker
+                    id="arrowhead-active"
+                    markerWidth="6"
+                    markerHeight="6"
+                    refX="5.5"
+                    refY="3"
+                    orient="auto"
+                >
+                    <polygon points="0,0 6,3 0,6" fill="#2563eb" />
+                </marker>
+                <filter id="legendShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.1"/>
+                </filter>
             </defs>
 
             {/* Circuit Components */}
@@ -77,7 +90,7 @@ export default function Circuit({activeComponents}) {
                     cx={junction.x}
                     cy={junction.y}
                     r={5} 
-                    fill="black"
+                    fill="#475569"
                 />
             ))}
 
@@ -94,17 +107,17 @@ export default function Circuit({activeComponents}) {
             ))}
 
             {/* Path Legend */}
-            <g transform="translate(1350, 20)">
-                <rect width="180" height="80" fill="white" stroke="#ccc" strokeWidth="1" rx="5" />
-                <text x="90" y="18" textAnchor="middle" fontWeight="bold" fontSize="14">Path Legend</text>
+            <g transform="translate(1300, 15)">
+                <rect width="240" height="110" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2" rx="12" filter="url(#legendShadow)" />
+                <text x="120" y="28" textAnchor="middle" fontWeight="bold" fontSize="16" fill="#1e293b">Path Legend</text>
                 
                 {/* Critical Path */}
-                <line x1="15" y1="40" x2="45" y2="40" stroke={ACTIVE_COLORS.critical} strokeWidth="3" />
-                <text x="55" y="44" fontSize="12">Critical Path</text>
+                <line x1="20" y1="58" x2="70" y2="58" stroke={ACTIVE_COLORS.critical} strokeWidth="5" strokeLinecap="round" />
+                <text x="85" y="63" fontSize="15" fill="#475569" fontWeight="500">Critical Path</text>
                 
                 {/* Non-Critical Path */}
-                <line x1="15" y1="60" x2="45" y2="60" stroke={ACTIVE_COLORS.nonCritical} strokeWidth="3" />
-                <text x="55" y="64" fontSize="12">Non-Critical Path</text>
+                <line x1="20" y1="88" x2="70" y2="88" stroke={ACTIVE_COLORS.nonCritical} strokeWidth="5" strokeLinecap="round" />
+                <text x="85" y="93" fontSize="15" fill="#475569" fontWeight="500">Non-Critical Path</text>
             </g>
         </svg>
     )

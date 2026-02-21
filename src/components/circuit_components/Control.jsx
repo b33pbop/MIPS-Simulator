@@ -4,18 +4,18 @@ export default function Control({ x, y, active=false }) {
     const width = 100;
     const height = 190;
     // Keep custom color when inactive, use active color when active
-    const strokeColor = isActive(active) ? getStrokeColor(active) : "#9D5343";
-    const strokeWidth = isActive(active) ? getStrokeWidth(active) : 3;
+    const strokeColor = isActive(active) ? getStrokeColor(active) : "#7c3aed";
+    const strokeWidth = isActive(active) ? getStrokeWidth(active) : 2;
     
     return (
         <g transform={`translate(${x}, ${y})`}>
             <rect 
                 width={width}
                 height={height} 
-                fill="#F0DED9"
+                fill="#f5f3ff"
                 stroke={strokeColor}
                 strokeWidth={strokeWidth}
-                rx="15"
+                rx="12"
             />
             <text 
                 x={width/2} y={height/2 + 5} 
@@ -23,10 +23,10 @@ export default function Control({ x, y, active=false }) {
                 dominantBaseline="middle"
                 transform={`rotate(90 ${width / 2} ${height / 2})`}
                 style={{
-                    fontSize: "40px",
+                    fontSize: "36px",
                     fontWeight: "bold"
                 }}
-                fill="#A92418"
+                fill="#7c3aed"
             >
                 Control
             </text>
