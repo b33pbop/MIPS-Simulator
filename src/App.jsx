@@ -36,7 +36,7 @@ function App() {
                     </div>
                 </div>
                 <div className="header-actions">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="help-link">
+                    <a href="https://github.com/b33pbop/MIPS-Simulator" target="_blank" rel="noopener noreferrer" className="help-link">
                         Documentation
                     </a>
                 </div>
